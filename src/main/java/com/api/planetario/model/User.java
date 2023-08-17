@@ -39,6 +39,8 @@ public class User implements UserDetails{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	
+	
 	@Column(unique = true ) 
 	private String username;
 	
@@ -52,6 +54,10 @@ public class User implements UserDetails{
 	@JoinColumn(name="profile_id")
 	private Profile profile;
 	
+
+	@Column
+	private double balance = 0;
+	
 	@ManyToOne
 	private Sales sales;
 	
@@ -63,7 +69,7 @@ public class User implements UserDetails{
 	
 
 
-	public User(Long id, String username, String password, @Email String email, Profile profile, Sales sales , Roles roles) {
+	public User(Long id, String username, String password, @Email String email, Profile profile, Sales sales , Roles roles , double balance) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -71,6 +77,7 @@ public class User implements UserDetails{
 		this.profile = profile;
 		this.sales = sales;
 		this.role = roles;
+		this.balance = balance;
 	}
 
 
@@ -91,7 +98,7 @@ public class User implements UserDetails{
 	
    @Override
 	public String getUsername() {
-		return username;
+		return email;
 	}
 
 	public void setUsername(String username) {
@@ -112,6 +119,13 @@ public class User implements UserDetails{
 		return email;
 	}
 
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
 
 
 

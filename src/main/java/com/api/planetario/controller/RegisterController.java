@@ -39,6 +39,8 @@ import com.api.planetario.services.TokenService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraintvalidation.SupportedValidationTarget;
 
+
+
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/auth")
@@ -63,9 +65,6 @@ public class RegisterController {
 	
 	@PostMapping("/register")
 	public ResponseEntity<String> Register(@Valid  @RequestBody RegisterDTO register){
-		
-		
-		
 		
 		User user = new User();
 		user.setRole(Roles.USER);

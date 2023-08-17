@@ -17,10 +17,10 @@ public class AuthorizationSecurity implements UserDetailsService{
 	UserRepository userrepository;
 	
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 	
 		
-		return userrepository.findByEmail(username);
+		return userrepository.findByEmail(email);
 	}
 
 	
